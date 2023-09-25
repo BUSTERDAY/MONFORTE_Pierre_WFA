@@ -16,3 +16,8 @@ J'ai trouver un tuto pour avoir une base de travail stable. J'ai donc passer la 
 ##### 22/09/2023
 
 J'ai fini de comprendre le tuto.
+
+
+##### 25/09/2023
+
+J'ai du recréer un nouveau dépot Git du à la perte de mon projet à au mauvais paramétrage du .gitignore
