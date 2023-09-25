@@ -127,7 +127,7 @@ namespace MONFORTE_Pierre_WFA
                 txtScore.Text = "Score : " + score + Environment.NewLine + "Tu es tombé dans le vide, appuis sur Entrée pour recommencer.";
             }
 
-            if (player.Bounds.IntersectsWith(door.Bounds) && score == 28)
+            if (player.Bounds.IntersectsWith(door.Bounds) && score == 18)
             {
                 gameTimer.Stop();
                 isGameOver = true;
@@ -182,13 +182,12 @@ namespace MONFORTE_Pierre_WFA
             //reset position des plateformes, des ennemies, et du joueur
 
             player.Left = 83;
-            player.Top = 645;
+            player.Top = 490;
 
             enemyOne.Left = 126;
-            enemyTwo.Left = 357;
+            enemyTwo.Left = 307;
 
-            horizontalPlatform.Left = 12;
-            verticalPlatform.Top = 503;
+            verticalPlatform.Top = 385;
 
             gameTimer.Start();
         }
