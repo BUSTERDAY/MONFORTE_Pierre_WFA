@@ -67,7 +67,6 @@
             this.pictureBox25 = new System.Windows.Forms.PictureBox();
             this.pictureBox28 = new System.Windows.Forms.PictureBox();
             this.pictureBox29 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox30 = new System.Windows.Forms.PictureBox();
             this.pictureBox32 = new System.Windows.Forms.PictureBox();
             this.pictureBox33 = new System.Windows.Forms.PictureBox();
@@ -511,15 +510,6 @@
             this.pictureBox29.TabStop = false;
             this.pictureBox29.Tag = "plafond";
             // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(201, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(449, 193);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Score : 0";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // pictureBox30
             // 
             this.pictureBox30.Location = new System.Drawing.Point(254, 108);
@@ -672,7 +662,6 @@
             this.Controls.Add(this.pictureBox15);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox13);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtScore);
             this.Controls.Add(this.door);
             this.Name = "Form1";
@@ -769,7 +758,6 @@
         private System.Windows.Forms.PictureBox pictureBox25;
         private System.Windows.Forms.PictureBox pictureBox28;
         private System.Windows.Forms.PictureBox pictureBox29;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox30;
         private System.Windows.Forms.PictureBox pictureBox32;
         private System.Windows.Forms.PictureBox pictureBox33;

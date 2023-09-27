@@ -12,32 +12,32 @@ namespace MONFORTE_Pierre_WFA
 {
     public partial class Form1 : Form
     {
+        // Variables pour le jeu
         bool goLeft, goRight, jumping, isGameOver;
-
-        int jumpSpeed;
         bool canjump = true;
+        int jumpSpeed;
         int force;
         int score = 0;
-        readonly int playerSpeed = 7;
-        
         int verticalSpeed = 3;
-
         int enemyOneSpeed = 5;
         int enemyTwoSpeed = 3;
-
+        readonly int playerSpeed = 7;
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        //Fonction principal
+        // Fonction principale du jeu (méthode appelée à chaque tick du timer)
         private void MainGameTimerEvent(object sender, EventArgs e)
         {
+            // Mise à jour du score affiché
             txtScore.Text = "Score : " + score;
 
+            // Déplacement vertical du joueur en sautant
             player.Top += jumpSpeed;
 
+            // Gestion des mouvements du joueur
             if (goLeft == true) { player.Left -= playerSpeed; }
             if (goRight == true) { player.Left += playerSpeed; }
             if (jumping == true && force < 0) { jumping = false; }
@@ -51,18 +51,19 @@ namespace MONFORTE_Pierre_WFA
                 jumpSpeed = 10;
             }
 
-            //collision du joueur
+            // Gestion des collisions avec les plates-formes
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox)
                 {
-
                     if ((string)x.Tag == "platform")
                     {
+                        // Si le joueur touche une plate-forme
                         if (player.Bounds.IntersectsWith(x.Bounds))
                         {
                             force = 8;
 
+                            // Le joueur rebondit sur la plate-forme
                             if (player.Bottom > x.Top && player.Top < x.Top)
                             {
                                 player.Top = x.Top - player.Height;
@@ -70,14 +71,15 @@ namespace MONFORTE_Pierre_WFA
                                 canjump = true;
                             }
 
-                            if (jumping == false) { force = 8;}
-                            else { force = -8;}
+                            // Gestion de la direction du rebond
+                            if (jumping == false) { force = 8; }
+                            else { force = -8; }
 
+                            // Empêche le joueur de passer à travers une plate-forme horizontale
                             if ((string)x.Name == "horizontalPlatform" && goLeft == false)
                             {
                                 goRight = false;
                             }
-
                             if ((string)x.Name == "horizontalPlatform" && goRight == false)
                             {
                                 goLeft = false;
@@ -87,13 +89,14 @@ namespace MONFORTE_Pierre_WFA
                 }
             }
 
-            //Fonctionnement des coins
+            // Gestion des pièces (coins)
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox)
                 {
                     if ((string)x.Tag == "coin")
                     {
+                        // Si le joueur collecte une pièce visible
                         if (player.Bounds.IntersectsWith(x.Bounds) && x.Visible == true)
                         {
                             x.Visible = false;
@@ -103,63 +106,58 @@ namespace MONFORTE_Pierre_WFA
                 }
             }
 
-            // Fonctionnement des ennemis
+            // Gestion des collisions avec les ennemis
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox)
                 {
                     if ((string)x.Tag == "enemy")
                     {
+                        // Si le joueur touche un ennemi
                         if (player.Bounds.IntersectsWith(x.Bounds))
                         {
                             gameTimer.Stop();
                             isGameOver = true;
-                            txtScore.Text = "Score : " + score + Environment.NewLine + "Tu as été tuer par un ennemie, appuis sur Entrée pour recommencer.";
+                            txtScore.Text = "Score : " + score + Environment.NewLine + "Tu as été tué par un ennemi, appuie sur Entrée pour recommencer.";
                         }
                     }
                 }
             }
 
-            //Mouvement vertical d'une plateforme
-
+            // Mouvement vertical de la plate-forme
             verticalPlatform.Top -= verticalSpeed;
-
             if (verticalPlatform.Top < 86 || verticalPlatform.Top > 385)
             {
                 verticalSpeed = -verticalSpeed;
             }
 
-            //Mouvement des ennemies
-
+            // Mouvement des ennemis horizontaux
             enemyOne.Left -= enemyOneSpeed;
-
             if (enemyOne.Left < pictureBox5.Left || enemyOne.Left + enemyOne.Width > pictureBox5.Left + pictureBox5.Width)
             {
                 enemyOneSpeed = -enemyOneSpeed;
             }
 
             enemyTwo.Left -= enemyTwoSpeed;
-
-            if (enemyTwo.Left < pictureBox2.Left || enemyTwo.Left + enemyTwo.Width > pictureBox2.Left + pictureBox2.Width)
+            if (enemyTwo.Left < pictureBox7.Left || enemyTwo.Left + enemyTwo.Width > pictureBox7.Left + pictureBox7.Width)
             {
                 enemyTwoSpeed = -enemyTwoSpeed;
             }
 
-            //Fonction de défaite lorsqu'on sort de la fenêtre
-
+            // Défaite si le joueur sort de la fenêtre
             if (player.Top > this.ClientSize.Height + 50)
             {
                 gameTimer.Stop();
                 isGameOver = true;
-                txtScore.Text = "Score : " + score + Environment.NewLine + "Tu es tombé dans le vide, appuis sur Entrée pour recommencer.";
+                txtScore.Text = "Score : " + score + Environment.NewLine + "Tu es tombé dans le vide, appuie sur Entrée pour recommencer.";
             }
 
-            //Fonction de victoire et conditions
+            // Condition de victoire
             if (player.Bounds.IntersectsWith(door.Bounds) && score == 18)
             {
                 gameTimer.Stop();
                 isGameOver = true;
-                txtScore.Text = "Score : " + score + Environment.NewLine + "Vous avez gagner, appuis sur Entrée pour recommencer.";
+                txtScore.Text = "Score : " + score + Environment.NewLine + "Vous avez gagné, appuie sur Entrée pour recommencer.";
             }
             else if (player.Bounds.IntersectsWith(door.Bounds) && score != 18)
             {
@@ -167,15 +165,11 @@ namespace MONFORTE_Pierre_WFA
             }
         }
 
-        //Lorsque les touches sont appuyés
+        // Gestion des touches enfoncées
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left) { goLeft = true; }
             if (e.KeyCode == Keys.Right) { goRight = true; }
-            if (e.KeyCode == Keys.Space)
-            {
-
-            }
             if (e.KeyCode == Keys.Space && canjump)
             {
                 jumping = true;
@@ -184,30 +178,29 @@ namespace MONFORTE_Pierre_WFA
             }
         }
 
-        //Lorsque les touches sont relacher
+        // Gestion des touches relâchées
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left) { goLeft = false; }
             if (e.KeyCode == Keys.Right) { goRight = false; }
             if (jumping == true) { jumping = false; }
 
+            // Redémarrage du jeu en appuyant sur Entrée lorsque c'est game over
             if (e.KeyCode == Keys.Enter && isGameOver == true) { RestartGame(); }
-
         }
 
-        //Fonction de relance du jeu
+        // Fonction de redémarrage du jeu
         private void RestartGame()
         {
+            // Réinitialisation des paramètres du jeu
             jumping = false;
             goLeft = false;
             goRight = false;
             isGameOver = false;
             score = 0;
-
             txtScore.Text = "Score : " + score;
 
-            //Reset visibilité des coins lors qu'on recommence la partie
-
+            // Réaffichage des pièces
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox && x.Visible == false)
@@ -216,16 +209,14 @@ namespace MONFORTE_Pierre_WFA
                 }
             }
 
-            //Reset position des plateformes, des ennemies, et du joueur
-
+            // Réinitialisation des positions
             player.Left = 83;
             player.Top = 490;
-
-            enemyOne.Left = 126;
+            enemyOne.Left = 112;
             enemyTwo.Left = 307;
-
             verticalPlatform.Top = 385;
 
+            // Redémarrage du timer
             gameTimer.Start();
         }
     }

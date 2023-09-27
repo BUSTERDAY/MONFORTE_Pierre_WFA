@@ -33,7 +33,23 @@ J'ai resolu le problème de collision.
 
 ## Fonctionnement du code
 
+Dans la public class Form1, on retrouve tout notre code nécessaire au jeu.
+
+En premier nous avons les variable de base du jeu.
+
+Ensuite le public Form1 permet l'initialisation du jeu.
+
+MainGameTimerEvent contient les principales fonctions du jeu.
+A l'intérieur on retrouve 3 foreach pour faire fonctionner les collisions, les coins et les ennemis.
+On retrouve aussi les fonctions pour les déplacements de la plateforme vertical et des ennemis.
+Enfin on retrouve la défaite si on sort de la fenêtre et les conditions de victoire.
+
+On a KeyIsDown qui permet de savoir si une touche est appuyé ou non.
+On a aussi KeyIsUp qui permet de savoir si une touche est relaché ou non.
+
+Enfin, on a la fonction RestartGame.
 
 
 ## Comment Lancer le jeu
 
+Il faut ouvrir sur visual code le fichier MONFORTE_Pierre_WFA.sln et appuyer sur la flêche verte pleine.
