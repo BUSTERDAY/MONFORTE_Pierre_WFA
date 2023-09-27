@@ -213,7 +213,7 @@ namespace MONFORTE_Pierre_WFA
             player.Left = 83;
             player.Top = 490;
             enemyOne.Left = 112;
-            enemyTwo.Left = 307;
+            enemyTwo.Left = 287;
             verticalPlatform.Top = 385;
 
             // Redémarrage du timer
