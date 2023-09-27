@@ -15,6 +15,7 @@ namespace MONFORTE_Pierre_WFA
         bool goLeft, goRight, jumping, isGameOver;
 
         int jumpSpeed;
+        bool canjump = true;
         int force;
         int score = 0;
         readonly int playerSpeed = 7;
@@ -30,6 +31,7 @@ namespace MONFORTE_Pierre_WFA
             InitializeComponent();
         }
 
+        //Fonction principal
         private void MainGameTimerEvent(object sender, EventArgs e)
         {
             txtScore.Text = "Score : " + score;
@@ -46,7 +48,7 @@ namespace MONFORTE_Pierre_WFA
             }
             else
             {
-                jumpSpeed = 6;
+                jumpSpeed = 10;
             }
 
             //collision du joueur
@@ -61,12 +63,15 @@ namespace MONFORTE_Pierre_WFA
                         {
                             force = 8;
 
-                            if (player.Top < x.Top + x.Height)
+                            if (player.Bottom > x.Top && player.Top < x.Top)
                             {
                                 player.Top = x.Top - player.Height;
-                                jumpSpeed = -8;
+                                jumping = false;
+                                canjump = true;
                             }
 
+                            if (jumping == false) { force = 8;}
+                            else { force = -8;}
 
                             if ((string)x.Name == "horizontalPlatform" && goLeft == false)
                             {
@@ -77,8 +82,6 @@ namespace MONFORTE_Pierre_WFA
                             {
                                 goLeft = false;
                             }
-
-                            if (jumping == false) { jumpSpeed = 0; }
                         }
                     }
                 }
@@ -169,10 +172,15 @@ namespace MONFORTE_Pierre_WFA
         {
             if (e.KeyCode == Keys.Left) { goLeft = true; }
             if (e.KeyCode == Keys.Right) { goRight = true; }
-            if (e.KeyCode == Keys.Space && jumping == false)
+            if (e.KeyCode == Keys.Space)
+            {
+
+            }
+            if (e.KeyCode == Keys.Space && canjump)
             {
                 jumping = true;
-
+                canjump = false;
+                jumpSpeed = -8;
             }
         }
 

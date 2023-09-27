@@ -25,3 +25,15 @@ J'ai du recréer un nouveau dépot Git du à la perte de mon projet à au mauvai
 ##### 26/09/2023
 
 Je suis revenu à ce que j'avais vendredi dernier.
+
+##### 27/09/2023
+
+J'ai resolu le problème de collision.
+
+
+## Fonctionnement du code
+
+
+
+## Comment Lancer le jeu
+
