@@ -53,3 +53,10 @@ Enfin, on a la fonction RestartGame.
 ## Comment Lancer le jeu
 
 Il faut ouvrir sur visual code le fichier MONFORTE_Pierre_WFA.sln et appuyer sur la flêche verte pleine.
+
+Les flèches gauche et droite permettent à ce diriger.
+La touche espace permet de sauter. Il faut la maintenir pour faire le saut complet.
+
+## Difficultés rencontrées
+
+J'ai perdu mon projet à cause d'un mauvais paramétrage du .gitignore.
