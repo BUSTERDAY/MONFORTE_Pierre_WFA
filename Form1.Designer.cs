@@ -664,6 +664,7 @@
             this.Controls.Add(this.pictureBox13);
             this.Controls.Add(this.txtScore);
             this.Controls.Add(this.door);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "Jeu de plateforme";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
