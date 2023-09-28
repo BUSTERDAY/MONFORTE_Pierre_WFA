@@ -334,7 +334,7 @@
             // 
             this.door.BackColor = System.Drawing.Color.Transparent;
             this.door.Image = global::MONFORTE_Pierre_WFA.Properties.Resources.door1;
-            this.door.Location = new System.Drawing.Point(25, 33);
+            this.door.Location = new System.Drawing.Point(25, 49);
             this.door.Name = "door";
             this.door.Size = new System.Drawing.Size(42, 54);
             this.door.TabIndex = 3;
@@ -355,7 +355,7 @@
             // 
             this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(12, 86);
+            this.pictureBox11.Location = new System.Drawing.Point(12, 102);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(199, 30);
             this.pictureBox11.TabIndex = 2;
@@ -377,7 +377,7 @@
             // 
             this.horizontalPlatform.BackColor = System.Drawing.Color.Transparent;
             this.horizontalPlatform.Image = ((System.Drawing.Image)(resources.GetObject("horizontalPlatform.Image")));
-            this.horizontalPlatform.Location = new System.Drawing.Point(245, 86);
+            this.horizontalPlatform.Location = new System.Drawing.Point(245, 102);
             this.horizontalPlatform.Name = "horizontalPlatform";
             this.horizontalPlatform.Size = new System.Drawing.Size(199, 30);
             this.horizontalPlatform.TabIndex = 2;

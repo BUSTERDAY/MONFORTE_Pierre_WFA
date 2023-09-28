@@ -126,7 +126,7 @@ namespace MONFORTE_Pierre_WFA
 
             // Mouvement vertical de la plate-forme
             verticalPlatform.Top -= verticalSpeed;
-            if (verticalPlatform.Top < 86 || verticalPlatform.Top > 385)
+            if (verticalPlatform.Top < 86 || verticalPlatform.Top > 445)
             {
                 verticalSpeed = -verticalSpeed;
             }
@@ -153,13 +153,13 @@ namespace MONFORTE_Pierre_WFA
             }
 
             // Condition de victoire
-            if (player.Bounds.IntersectsWith(door.Bounds) && score == 18)
+            if (player.Bounds.IntersectsWith(door.Bounds) && score == 15)
             {
                 gameTimer.Stop();
                 isGameOver = true;
                 txtScore.Text = "Score : " + score + Environment.NewLine + "Vous avez gagné, appuie sur Entrée pour recommencer.";
             }
-            else if (player.Bounds.IntersectsWith(door.Bounds) && score != 18)
+            else if (player.Bounds.IntersectsWith(door.Bounds) && score != 15)
             {
                 txtScore.Text = "Score : " + score + Environment.NewLine + "Collecte toutes les pièces";
             }
