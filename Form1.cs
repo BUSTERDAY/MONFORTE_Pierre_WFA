@@ -66,9 +66,10 @@ namespace MONFORTE_Pierre_WFA
                             // Le joueur rebondit sur la plate-forme
                             if (player.Bottom > x.Top && player.Top < x.Top)
                             {
-                                player.Top = x.Top - player.Height;
+                                player.Top = x.Top - player.Height +1;
                                 jumping = false;
                                 canjump = true;
+                                jumpSpeed = 0;
                             }
 
                             // Gestion de la direction du rebond
@@ -87,11 +88,8 @@ namespace MONFORTE_Pierre_WFA
                         }
                     }
                 }
-            }
 
-            // Gestion des pièces (coins)
-            foreach (Control x in this.Controls)
-            {
+                // Gestion des pièces (coins)
                 if (x is PictureBox)
                 {
                     if ((string)x.Tag == "coin")
@@ -104,11 +102,8 @@ namespace MONFORTE_Pierre_WFA
                         }
                     }
                 }
-            }
 
-            // Gestion des collisions avec les ennemis
-            foreach (Control x in this.Controls)
-            {
+                // Gestion des collisions avec les ennemis
                 if (x is PictureBox)
                 {
                     if ((string)x.Tag == "enemy")
