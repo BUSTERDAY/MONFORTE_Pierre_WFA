@@ -128,7 +128,7 @@
             // 
             // txtScore
             // 
-            this.txtScore.Location = new System.Drawing.Point(191, 9);
+            this.txtScore.Location = new System.Drawing.Point(175, 9);
             this.txtScore.Name = "txtScore";
             this.txtScore.Size = new System.Drawing.Size(449, 193);
             this.txtScore.TabIndex = 0;
@@ -138,7 +138,7 @@
             // gameTimer
             // 
             this.gameTimer.Enabled = true;
-            this.gameTimer.Interval = 40;
+            this.gameTimer.Interval = 20;
             this.gameTimer.Tick += new System.EventHandler(this.MainGameTimerEvent);
             // 
             // enemyTwo

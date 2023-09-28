@@ -31,7 +31,7 @@ Je suis revenu à ce que j'avais vendredi dernier.
 J'ai resolu le problème de collision.
 
 
-## Fonctionnement du code
+## Organisation du code
 
 Dans la public class Form1, on retrouve tout notre code nécessaire au jeu.
 

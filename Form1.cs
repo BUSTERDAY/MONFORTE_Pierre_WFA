@@ -19,7 +19,7 @@ namespace MONFORTE_Pierre_WFA
         int force;
         int score = 0;
         int verticalSpeed = 3;
-        int enemyOneSpeed = 5;
+        int enemyOneSpeed = 2;
         int enemyTwoSpeed = 3;
         readonly int playerSpeed = 7;
 
@@ -43,12 +43,12 @@ namespace MONFORTE_Pierre_WFA
             if (jumping == true && force < 0) { jumping = false; }
             if (jumping == true)
             {
-                jumpSpeed = -6;
+                jumpSpeed = -10;
                 force -= 1;
             }
             else
             {
-                jumpSpeed = 10;
+                jumpSpeed = 14;
             }
 
             // Gestion des collisions avec les plates-formes
