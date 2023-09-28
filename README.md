@@ -43,7 +43,7 @@ En premier nous avons les variable de base du jeu.
 
 Ensuite le public Form1 permet l'initialisation du jeu.
 
-MainGameTimerEvent contient les principales fonctions du jeu. \-n
+MainGameTimerEvent contient les principales fonctions du jeu. /-n
 A l'intérieur on retrouve un foreach pour faire fonctionner les collisions, les coins et les ennemis.
 On retrouve aussi les fonctions pour les déplacements de la plateforme vertical et des ennemis.
 Enfin on retrouve la défaite si on sort de la fenêtre et les conditions de victoire.
